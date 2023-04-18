@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Criptografia Matrix</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #0F0;
+      font-family: monospace;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      background-color: #333;
+      border: none;
+      color: #0F0;
+      font-family: monospace;
+      font-size: 24px;
+      margin: 10px;
+      padding: 10px;
+      width: 80%;
+    }
+
+    input[type="radio"] {
+      margin: 10px;
+    }
+
+    button {
+      background-color: #0F0;
+      border: none;
+      color: #000;
+      font-family: monospace;
+      font-size: 24px;
+      margin: 10px;
+      padding: 10px;
+      width: 20%;
+    }
+
+    .result {
+      margin: 10px;
+      padding: 10px;
+      border: 2px solid #0F0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Criptografia Matrix</h1>
+  <input type="text" id="message" placeholder="Digite o texto a ser criptografado ou descriptografado">
+  <br>
+  <input type="radio" id="encrypt" name="option" checked>
+  <label for="encrypt">Criptografar</label>
+  <br>
+  <input type="radio" id="decrypt" name="option">
+  <label for="decrypt">Descriptografar</label>
+  <br>
+  <button onclick="crypt()">Enviar</button>
+  <div class="result" id="result"></div>
+
+  <script>
+    function crypt() {
+      let message = document.getElementById("message").value;
+      let option = document.querySelector('input[name="option"]:checked').id;
+      let result = "";
+
+      if (option == "encrypt") {
+        result = encrypt(message);
+      } else {
+        result = decrypt(message);
+      }
+
+      document.getElementById("result").innerHTML = result;
+    }
+
+    function encrypt(message) {
+      let encryptedMessage = message.replace(/e/g, "enter");
+      encryptedMessage = encryptedMessage.replace(/i/g, "imes");
+      encryptedMessage = encryptedMessage.replace(/a/g, "ai");
+      encryptedMessage = encryptedMessage.replace(/o/g, "ober");
+      encryptedMessage = encryptedMessage.replace(/u/g, "ufat");
+      return encryptedMessage;
+    }
+
+    function decrypt(message) {
+      let decryptedMessage = message.replace(/enter/g, "e");
+      decryptedMessage = decryptedMessage.replace(/imes/g, "i");
+      decryptedMessage = decryptedMessage.replace(/ai/g, "a");
+      decryptedMessage = decryptedMessage.replace(/ober/g, "o");
+      decryptedMessage = decryptedMessage.replace(/ufat/g, "u");
+      return decryptedMessage;
+    }
+  </script>
+</body>
+</html>
